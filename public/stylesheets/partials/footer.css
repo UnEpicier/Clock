@@ -1,0 +1,21 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+	padding: 20px;
+	width: 100%;
+	background-color: #001d3d;
+}
+
+.footer .credits {
+	font-size: 1.1rem;
+	color: #fff;
+}
+
+.footer .code {
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #003566;
+	color: #ddd;
+}
