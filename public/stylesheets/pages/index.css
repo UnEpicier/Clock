@@ -6,11 +6,12 @@
 }
 
 .toggle {
+	--size: 60px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 60px;
-	height: 60px;
+	width: var(--size);
+	height: var(--size);
 	border-radius: 50%;
 	background-color: #e63946;
 	box-shadow: 0 0 10px #222;
@@ -64,4 +65,23 @@
 	margin-top: 20px;
 	font-size: 1.5rem;
 	color: #aaa;
+}
+
+@media screen and (max-width: 768px) {
+	.toggle {
+		--size: 50px;
+		font-size: .8rem;
+	}
+
+	.clock {
+		font-size: 4rem;
+	}
+
+	.ampm {
+		font-size: 1.5rem;
+	}
+
+	.date {
+		font-size: 1.2rem;
+	}
 }
