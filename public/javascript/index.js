@@ -75,7 +75,6 @@ const refreshDate = () => {
 
 	const dateElement = document.querySelector('.date');
 	dateElement.textContent = `${days[day]}, ${months[month]} ${num}, ${year}`;
-
 }
 
 /*
@@ -106,19 +105,25 @@ if (!existCookie('ampm')) {
 
 let ampm = getCookie('ampm') === 'true' ? true : false;
 
-document.querySelector('.toggle').textContent = ampm ? 'EN' : 'FR';
+if (ampm) {
+	document.querySelector('.toggle').classList.add('on');
+}
 
 refreshClock(ampm);
 refreshDate(ampm);
 
 document.querySelector('.toggle').addEventListener('click', () => {
 	document.querySelector('.toggle').classList.toggle('rot');
-	setTimeout(() => {
-		document.querySelector('.toggle').textContent = ampm ? 'EN' : 'FR';
-	}, 400)
 
 	ampm = !ampm;
+	if (ampm) {
+		document.querySelector('.toggle').classList.add('on');
+	} else {
+		document.querySelector('.toggle').classList.remove('on');
+	}
+
 	createCookie('ampm', !ampm);
+
 	refreshClock(ampm);
 	refreshDate(ampm);
 })
