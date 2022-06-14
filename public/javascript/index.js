@@ -68,8 +68,6 @@ const refreshClock = (ampm) => {
 const refreshDate = (config) => {
 	const date = new Date(Date.now());
 
-	// Get day
-
 	const day = date.getDay();
 	const num = date.getDate()
 	const month = date.getMonth();
