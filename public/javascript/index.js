@@ -1,3 +1,32 @@
+/* 
+ ! CONSTANTS
+ */
+
+const days = [
+	'Sunday',
+	'Monday',
+	'Tuesday',
+	'Wednesday',
+	'Thursday',
+	'Friday',
+	'Saturday'
+]
+
+const months = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
+]
+
 /*
  ! PROJECT FUNCTIONS
  */
@@ -39,15 +68,16 @@ const refreshClock = (ampm) => {
 const refreshDate = (config) => {
 	const date = new Date(Date.now());
 
-	let day = date.getDate();
-	let month = date.getMonth() + 1;
-	let year = date.getFullYear();
+	// Get day
 
-	day = day < 10 ? '0' + day : day;
-	month = month < 10 ? '0' + month : month;
+	const day = date.getDay();
+	const num = date.getDate()
+	const month = date.getMonth();
+	const year = date.getFullYear();
 
 	const dateElement = document.querySelector('.date');
-	dateElement.textContent = `${day}/${month}/${year}`;
+	dateElement.textContent = `${days[day]}, ${months[month]} ${num}, ${year}`;
+
 }
 
 /*
