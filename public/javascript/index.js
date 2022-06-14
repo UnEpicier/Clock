@@ -81,6 +81,17 @@ const refreshDate = () => {
  ? UTILS
  */
 
+const createCookie = (name, value, days) => {
+	let expires = "";
+	if (days) {
+		let date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		expires = `expires=${date.toGMTString()}`;
+	}
+
+	document.cookie = `${name}=${value};${expires};path=/`;
+}
+
 const getCookie = (name) => {
 	const value = `; ${document.cookie}`;
 	const parts = value.split(`; ${name}=`);
@@ -92,15 +103,15 @@ const existCookie = (name) => {
 	return getCookie(name) ? true : false;
 }
 
-const createCookie = (name, value) => {
-	return document.cookie = `${name}=${value}`;
+function eraseCookie(name) {
+	createCookie(name, "", -1);
 }
 
 /*
  ! STARTUP
  */
 if (!existCookie('ampm')) {
-	createCookie('ampm', 'false')
+	createCookie('ampm', 'false', 7)
 }
 
 let ampm = getCookie('ampm') === 'true' ? true : false;
@@ -122,7 +133,7 @@ document.querySelector('.toggle').addEventListener('click', () => {
 		document.querySelector('.toggle').classList.remove('on');
 	}
 
-	createCookie('ampm', !ampm);
+	createCookie('ampm', `${ampm}`, 7);
 
 	refreshClock(ampm);
 	refreshDate(ampm);
