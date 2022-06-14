@@ -65,7 +65,7 @@ const refreshClock = (ampm) => {
 	clock.textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-const refreshDate = (config) => {
+const refreshDate = () => {
 	const date = new Date(Date.now());
 
 	const day = date.getDay();
