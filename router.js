@@ -11,7 +11,7 @@ router.get('/', (_, res) => {
 
 // 404 error
 router.use((_, res) => {
-	return res.render('__error')
+	return res.status(404).render('__error', { title: '404 Error' })
 })
 
 module.exports = router
