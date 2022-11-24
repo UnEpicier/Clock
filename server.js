@@ -25,8 +25,6 @@ app.engine('hbs', hbs.engine)
 // Routes
 app.use(require('./router'))
 
-const port = process.env.PORT ?? 3000
-
-app.listen(port, () => {
-	console.log(`ExpressJS server started on http://localhost:${port}/`)
+app.listen(3000, () => {
+	console.log(`ClockJS started on http://localhost:${port}/`)
 })
